@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoopShop</title>
+    <meta name="description"
+        content="Encontre produtos em final de estoque de lojas de material de construção a preços incríveis. Nosso marketplace oferece uma variedade de produtos em outlet.">
+    <meta name="keywords"
+        content="marketplace, economia circular, outlet, produtos em promoção, material de construção">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Equipe Leilarq">
+    <meta name="theme-color" content="#6ab150">
+    <link rel="canonical" href="loop.grtt.com.br">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:wght@400;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .timeline {
+            list-style-type: none;
+            padding: 0;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background-color: #6ab150;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            background-color: #6ab150;
+            border-radius: 50%;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-item-content {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.375rem;
+            padding: 1.25rem;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-gray-300 border-b-4 border-green-500 text-white py-4 text-center grid grid-cols-12">
+        <img src="images/logo.png" alt="Logo"
+            class="lg:col-span-1 lg:col-start-2 col-span-4 col-start-4 row-span-1 row-start-2 max-h-14">
+    </header>
+
+    <div class="container mx-auto my-8 px-4">
+        <h1 class="text-2xl font-semibold mb-4">Acompanhamento do Pedido #123456</h1>
+
+        <ul class="timeline">
+            <li class="timeline-item">
+                <div class="timeline-item-content">
+                    <h3 class="text-lg font-semibold">Pedido Recebido</h3>
+                    <p>Seu pedido foi recebido com sucesso.</p>
+                    <p>22 de Março de 2024 - 10:00</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-item-content">
+                    <h3 class="text-lg font-semibold">Em Processamento</h3>
+                    <p>Seu pedido está sendo processado.</p>
+                    <p>23 de Março de 2024 - 12:00</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-item-content">
+                    <h3 class="text-lg font-semibold">Enviado</h3>
+                    <p>Seu pedido foi enviado para entrega.</p>
+                    <p>25 de Março de 2024 - 14:00</p>
+                </div>
+            </li>
+            <li class="timeline-item">
+                <div class="timeline-item-content">
+                    <h3 class="text-lg font-semibold">Entregue</h3>
+                    <p>Seu pedido foi entregue com sucesso.</p>
+                    <p>28 de Março de 2024 - 11:00</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <footer class="text-center py-4 mt-10 bg-gray-900 text-white">
+        <p class="my-3">&copy; 2024 LoopShop. Todos os direitos reservados.</p>
+        <ul>
+            <li>
+                <a class="inline-block mx-2" href="index.html">Home</a>
+                <a class="inline-block mx-2" href="product.html">Produto</a>
+                <a class="inline-block mx-2" href="tracking.html">Acompanhamento</a>
+                <a class="inline-block mx-2" href="management.html">Gerenciamento</a>
+                <a class="inline-block mx-2" href="dashboard.html">Cadastro</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>
