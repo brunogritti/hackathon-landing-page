@@ -46,12 +46,9 @@ footer {
     width: 100%;
 }
 
-.fullscreen-section {
-    height: 80vh;
-    /* 100% da altura da viewport */
+.cover-bg {
     background-image: url('images/remodeling.jpg');
     background-size: cover;
-    /* Cobrir toda a área da seção */
     background-position: center;
 }
 
