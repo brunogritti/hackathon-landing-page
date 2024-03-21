@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoopShop</title>
+    <meta name="description"
+        content="Encontre produtos em final de estoque de lojas de material de construção a preços incríveis. Nosso marketplace oferece uma variedade de produtos em outlet.">
+    <meta name="keywords"
+        content="marketplace, economia circular, outlet, produtos em promoção, material de construção">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Equipe Leilarq">
+    <meta name="theme-color" content="#6ab150">
+    <link rel="canonical" href="loop.grtt.com.br">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:wght@400;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-gray-300 border-b-4 border-green-500 text-white py-4 text-center grid grid-cols-12">
+        <img src="images/logo.png" alt="Logo" class="lg:col-span-1 lg:col-start-2 col-span-4 col-start-4 row-span-1 row-start-2 max-h-14">
+    </header>
+
+    <div class="container mx-auto my-8 px-4">
+        
+        <div class="mb-4">
+
+            <div class="grid grid-cols-4 mb-10">
+                <!-- Gráfico donut para acompanhamento de estoque -->
+                <div class="mt-8 col-span-1 col-start-2">
+                    <h2 class="text-lg font-semibold mb-4">Capacidade do Estoque</h2>
+                    <canvas id="estoqueChart" width="400" height="400"></canvas>
+                </div>
+                <!-- Gráfico donut para acompanhamento de pedidos -->
+                <div class="mt-8 col-span-1">
+                    <h2 class="text-lg font-semibold mb-4">Acompanhamento de Pedidos</h2>
+                    <canvas id="pedidosChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+
+            <h1 class="text-2xl font-semibold">Acompanhamento de Estoque</h1>
+            <div class="overflow-x-auto">
+                <table class="w-full mt-4 bg-white shadow-md rounded-lg">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="py-2">SKU</th>
+                            <th class="py-2">Produto</th>
+                            <th class="py-2">Em Estoque</th>
+                            <th class="py-2">Última Venda</th>
+                            <th class="py-2">Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2">SKU001</td>
+                            <td class="py-2">Produto 1</td>
+                            <td class="py-2">50 unidades</td>
+                            <td class="py-2">15/03/2024</td>
+                            <td class="py-2">R$ 99,99</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2">SKU002</td>
+                            <td class="py-2">Produto 2</td>
+                            <td class="py-2">10 unidades</td>
+                            <td class="py-2">10/03/2024</td>
+                            <td class="py-2">R$ 49,99</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2">SKU003</td>
+                            <td class="py-2">Produto 3</td>
+                            <td class="py-2">25 unidades</td>
+                            <td class="py-2">18/03/2024</td>
+                            <td class="py-2">R$ 79,99</td>
+                        </tr>
+                        <!-- Adicione mais linhas conforme necessário -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <section class="mb-8">
+            <h1 class="text-2xl font-semibold">Acompanhamento de Pedidos</h1>
+            <div class="overflow-x-auto">
+                <table class="w-full mt-4 bg-white shadow-md rounded-lg">
+                    <thead class="bg-gray-200">
+                        <tr>
+                            <th class="py-2">Pedido</th>
+                            <th class="py-2">Produto</th>
+                            <th class="py-2">Quantidade</th>
+                            <th class="py-2">Status</th>
+                            <th class="py-2">Previsão de Entrega</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-2">Pedido001</td>
+                            <td class="py-2">Produto 1</td>
+                            <td class="py-2">2 unidades</td>
+                            <td class="py-2">Em Trânsito</td>
+                            <td class="py-2">20/03/2024</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2">Pedido002</td>
+                            <td class="py-2">Produto 3</td>
+                            <td class="py-2">5 unidades</td>
+                            <td class="py-2">Entregue</td>
+                            <td class="py-2">15/03/2024</td>
+                        </tr>
+                        <!-- Adicione mais linhas conforme necessário -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <footer class="text-center py-4 bg-gray-900 text-white">
+        <p>&copy; 2024 LoopShop. Todos os direitos reservados.</p>
+    </footer>
+</body>
+<script>
+    // Dados de exemplo para o gráfico de estoque
+    var estoqueData = {
+        labels: ["Em Estoque", "Vendido"],
+        datasets: [{
+            data: [50, 20],
+            backgroundColor: ["#68d391", "#ff7e67"]
+        }]
+    };
+
+    // Opções do gráfico de estoque
+    var estoqueOptions = {
+        responsive: true,
+        cutoutPercentage: 60
+    };
+
+    // Criação do gráfico de estoque
+    var estoqueChart = new Chart(document.getElementById('estoqueChart'), {
+        type: 'doughnut',
+        data: estoqueData,
+        options: estoqueOptions
+    });
+
+    // Dados de exemplo para o gráfico de pedidos
+    var pedidosData = {
+        labels: ["Em Trânsito", "Entregue", "Cancelado"],
+        datasets: [{
+            data: [30, 50, 10],
+            backgroundColor: ["#68d391", "#ff7e67", "#718096"]
+        }]
+    };
+
+    // Opções do gráfico de pedidos
+    var pedidosOptions = {
+        responsive: true,
+        cutoutPercentage: 60
+    };
+
+    // Criação do gráfico de pedidos
+    var pedidosChart = new Chart(document.getElementById('pedidosChart'), {
+        type: 'doughnut',
+        data: pedidosData,
+        options: pedidosOptions
+    });
+</script>
+</html>
